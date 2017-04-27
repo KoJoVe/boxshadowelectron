@@ -3,13 +3,34 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <style>
+      .work {
+        box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.75);
+        margin-top: 50px;
+      }
+      .wont-work {
+        box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.75);
+        margin-top: 50px;
+      }
+      .work2 {
+        box-shadow: 0px 5px 8px -1px rgba(0, 0, 0, 0.75);
+        margin-top: 50px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>Box-Shadows are Buggy in electron!</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    Those are the box-shadow values used in the tests. You can run this html file in your browser
+    and you will see that everything will work just fine. But when you run it in electron, there is
+    an unexpected behavior.
+
+    <p class="work">box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.75) WORKING!</p>
+
+    <p class="wont-work">box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.75) NOT WORKING! :(</p>
+
+    <p class="work2">box-shadow: 0px 5px 8px -1px rgba(0, 0, 0, 0.75) WORKING!</p>
+
   </body>
 
   <script>
